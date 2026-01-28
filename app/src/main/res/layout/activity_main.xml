@@ -1,31 +1,69 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
     <ListView
         android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="274dp"
-        android:layout_weight="0.70" >
+        android:layout_width="wrap_content"
+        android:layout_height="116dp"
+        android:layout_x="-9dp"
+        android:layout_y="1dp">
     </ListView>
 
     <Button
         android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add" />
+        android:text="Add"
+        android:layout_x="-7dp"
+        android:layout_y="259dp" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete" />
+        android:text="Delete"
+        android:layout_x="-3dp"
+        android:layout_y="310dp" />
 
     <Button
         android:id="@+id/modifiy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Modifiy" />
+        android:text="Modifiy"
+        android:layout_x="0dp"
+        android:layout_y="352dp" />
 
-</LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="load"
+        android:id="@+id/load"
+        android:layout_x="-3dp"
+        android:layout_y="401dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:id="@+id/save"
+        android:layout_x="-3dp"
+        android:layout_y="443dp" />
+
+    <EditText
+        android:layout_width="143dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/fichier"
+        android:layout_x="34dp"
+        android:layout_y="208dp" />
+
+    <EditText
+        android:layout_width="325dp"
+        android:layout_height="105dp"
+        android:id="@+id/multitext"
+        android:layout_x="29dp"
+        android:layout_y="83dp"
+        android:inputType="textMultiLine" />
+
+</AbsoluteLayout>

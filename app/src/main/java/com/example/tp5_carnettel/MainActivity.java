@@ -12,26 +12,41 @@ import android.widget.EditText;
 import android.widget.ListView;
 import com.example.tp5_carnettel.Contact;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
 public class MainActivity extends Activity 
 {
-	private ListView mainListView ;
-	private ArrayAdapter<Contact> listAdapter ;
-	private int selectedItem;
-	
 	private static final  int AJOUTER=0;
 	private static final  int MODIFIER=1;
 
+	private ListView mainListView ;
+	private ArrayAdapter<Contact> listAdapter ;
+	private int selectedItem;
 
-	@Override
+    String nomFichier;
+    String contenu;
+
+    private EditText editNomFichier;
+    private EditText editContenu;
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState)
     {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+        editNomFichier = (EditText) findViewById(R.id.fichier);
+        editContenu = (EditText) findViewById(R.id.multitext);
 		
 		mainListView = (ListView) findViewById( R.id.list );
 		listAdapter = new ArrayAdapter<Contact>(this, R.layout.item);
 		mainListView.setAdapter( listAdapter );
 		selectedItem=-1;
+
 
 
 		 mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,6 +87,75 @@ public class MainActivity extends Activity
                 }
             }
         });
+
+        Button save = (Button) findViewById(R.id.save);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                nomFichier = editNomFichier.getText().toString();
+                contenu = editContenu.getText().toString();
+
+                try {
+                    // créer un flux pour écrire dans le fichier
+                    OutputStreamWriter out = new OutputStreamWriter(openFileOutput(nomFichier, MODE_PRIVATE));
+                    BufferedWriter buf = new BufferedWriter(out);
+
+                    // écrire le texte dans le fichier
+                    buf.write(contenu);
+
+                    // fermer le flux
+                    buf.close();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+
+
+            }
+        });
+
+
+        Button load = (Button) findViewById(R.id.load);
+        load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nomFichier = editNomFichier.getText().toString();
+
+                try {
+                    // ouvrir le fichier en lecture
+                    InputStream in = openFileInput(nomFichier);
+                    InputStreamReader inputReader = new InputStreamReader(in);
+                    BufferedReader reader = new BufferedReader(inputReader);
+
+                    // variable pour stocker le texte lu
+                    StringBuilder contenuLu = new StringBuilder();
+                    String ligne;
+
+                    // lire le fichier ligne par ligne
+                    while ((ligne = reader.readLine()) != null) {
+                        contenuLu.append(ligne);
+                        contenuLu.append("\n"); // ajoute un retour à la ligne
+                    }
+
+                    // fermer le flux
+                    reader.close();
+
+                    // mettre le texte lu dans l'EditText multiligne
+                    editContenu.setText(contenuLu.toString());
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+
+            }
+        });
+
     }
 
 
