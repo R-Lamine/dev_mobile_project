@@ -2,6 +2,7 @@ package com.example.tp5_carnettel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -64,6 +65,16 @@ public class Dialogue extends Activity
             public void onClick(View v) {
                 setResult(RESULT_CANCELED);
                 finish();
+            }
+        });
+
+        Button composer_num = (Button) findViewById(R.id.composer);
+        composer_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String toDial="tel:" + "0123456789";
+                Uri teleph= Uri.parse(toDial);
+                startActivity(new Intent(Intent.ACTION_DIAL, teleph));
             }
         });
 
