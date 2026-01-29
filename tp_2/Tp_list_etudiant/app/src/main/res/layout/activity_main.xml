@@ -1,11 +1,79 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ajouter"
+        android:id="@+id/ajouter"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_x="74dp"
+        android:layout_y="371dp" />
 
-</RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="modifier"
+        android:id="@+id/modifier"
+        android:layout_x="165dp"
+        android:layout_y="388dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nom"
+        android:id="@+id/nom"
+        android:layout_x="151dp"
+        android:layout_y="122dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="info"
+        android:id="@+id/info"
+        android:layout_x="146dp"
+        android:layout_y="187dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="math"
+        android:id="@+id/math"
+        android:layout_x="149dp"
+        android:layout_y="259dp" />
+
+    <EditText
+        android:layout_width="63dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/nom1"
+        android:layout_x="204dp"
+        android:layout_y="131dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info1"
+        android:layout_x="214dp"
+        android:layout_y="194dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/math1"
+        android:layout_x="222dp"
+        android:layout_y="259dp" />
+
+    <ListView
+        android:layout_width="72dp"
+        android:layout_height="247dp"
+        android:id="@+id/listetudiant"
+        android:layout_x="17dp"
+        android:layout_y="31dp" />
+
+</AbsoluteLayout>
